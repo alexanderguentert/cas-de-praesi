@@ -1,6 +1,6 @@
 ---
 marp: true
-theme: custom-default
+theme: custom-gaia
 footer: 'https://example.com'
 ---
 
