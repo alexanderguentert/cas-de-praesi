@@ -55,25 +55,21 @@ theme: weber
 
 <div class="columns">
 <div>
-      
-<!-- _class: cool-list -->
 
-- Open Data Zürich betreibt **zahlreiche historisch gewachsene Aktualisierungsprozesse**
-- Unterschiedliche Kanäle:
-  - Dropzone (WebDAV Harvester)
-  - GitHub Actions
-  - GitLab Pipelines
-  - CRON-Jobs
-  - Manuelle Uploads
+Open Data Zürich betreibt **zahlreiche historisch gewachsene Aktualisierungsprozesse** über unterschiedliche Kanäle:
+- Dropzone (WebDAV Harvester)
+- GitHub Actions
+- GitLab Pipelines
+- CRON-Jobs
+- Manuelle Uploads
 
 </div>  
 <div>    
         
-- **Zunehmende Anzahl und Komplexität** der Datensätze
-- Höhere Anforderungen an:
-  - Zuverlässigkeit
-  - Monitoring
-  - Nachvollziehbarkeit
+**Zunehmende Anzahl und Komplexität** der Datensätze stellt höhere Anforderungen an:
+- Zuverlässigkeit
+- Monitoring
+- Nachvollziehbarkeit
 
 </div> 
 </div>
@@ -110,9 +106,6 @@ theme: weber
 ---
 
 # Wie sieht die Lösung aus?
-
-<div class="columns">
-<div>
       
 **Apache Airflow als zentraler Orchestrator**
 
@@ -128,22 +121,7 @@ theme: weber
 - Bessere Wartbarkeit
 - Zukunftssichere Architektur
 
-</div>  
-<div>    
-        
-<div class="mermaid">
-
-flowchart LR
-    A[Aktualisierung des Inventars des Hauptarchivs] --> AF[Apache Airflow]
-    B[Andere Pipeline<BR>z.B. API, Laufwerke, etc] --> AF
-    C[Andere Pipeline ...] --> AF
-    AF --> CKAN[CKAN<br>Open Data Katalog]
-    style AF fill:#f9f,stroke:#333,stroke-width:2px,color:#000
-
-</div>
-
-</div> 
-</div>
+![bg right:40% h:50%](img/airflow_architektur.svg)
 
 ---
 
