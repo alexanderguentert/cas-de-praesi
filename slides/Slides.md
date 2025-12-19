@@ -51,8 +51,6 @@ theme: weber
 
 ---
 
-# Warum jetzt?
-
 <div class="columns">
 <div>
 
@@ -129,14 +127,11 @@ Open Data Zürich betreibt **zahlreiche historisch gewachsene Aktualisierungspro
 
 **Warum dieser Use Case?**
 - Typischer Open-Data-Aktualisierungsprozess
-- Hohe Komplexität:
-  - API-Abfrage (SRU)
-  - PDF-Downloads
-  - KI-basierte Textzusammenfassungen
-  - CSV & Parquet
-  - Metadaten-Update in CKAN
+- Hohe Komplexität (API-Abfrage (SRU), PDF-Downloads, KI-basierte Textzusammenfassungen, CSV & Parquet, Metadaten-Update in CKAN)
 
 ➡️ Ideal als **Blaupause für weitere Pipelines**
+
+![bg right:40% h:90%](img/mermaid_download_sru.svg)
 
 ---
 
@@ -144,7 +139,7 @@ Open Data Zürich betreibt **zahlreiche historisch gewachsene Aktualisierungspro
 # Technische Umsetzung (POC)
 
 - Eigener Airflow-DAG für den Use Case
-- Verarbeitungsschritte als Docker-Container
+- Verarbeitungsschritte als Docker-Container in separatem [Repository](https://github.com/alexanderguentert/cas-de-airflow-container)
 - Gemeinsames Volume für Datenaustausch
 - Parallelisierung einzelner Tasks (z. B. CSV & Parquet Upload)
 
