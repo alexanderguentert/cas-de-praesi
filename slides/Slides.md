@@ -1,105 +1,220 @@
 ---
 marp: true
+title: Orchestrierung von Open-Data-Aktualisierungen mit Apache Airflow
+author: Alexander Güntert
+paginate: true
 theme: weber
-footer: 'https://example.com'
 ---
 
-# 1. Sample Presentation
-![bg right](https://picsum.photos/800/600)
+<!-- _class: titlepage -->
+# Orchestrierung Open-Data-Aktualisierungen mit Apache Airflow
+## CAS Data Engineering HS25
+### Use Case Präsentation 
+#### Alexander Güntert
 
----
+<style>
+.bottom-img-row {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  gap: 24px;            
+  margin-top: 24px;
+}
+.bottom-img {
+  height: 100px;
+}
+</style>
+<div class="bottom-img-row">
+  <img class="bottom-img" src="https://upload.wikimedia.org/wikipedia/commons/7/71/AirflowLogo.svg" />
+  <img class="bottom-img" src="https://data.stadt-zuerich.ch/logo.svg" />
+</div>
 
-<!-- Speaker Notes -->
-## 2. Speaker nots and Lists
-
-- Item 1
-- Item 2
-- Item 3
-<!-- Can have multiple on a slide -->
-
----
-
-## 3. Speaker notes and images
-<!-- Can also do a multiline
-comment that will show in notes -->
-
-![Image](https://picsum.photos/800/600)
-
----
-
-## 4. Centered images
-
-You can center images
-
-![center](https://picsum.photos/800/600)
 
 ---
 
-## 5. Slide 4
+# Warum jetzt?
 
-> This is a quote.
+- Open Data Zürich betreibt **zahlreiche historisch gewachsene Aktualisierungsprozesse**
+- Unterschiedliche Kanäle:
+  - Dropzone (WebDAV Harvester)
+  - GitHub Actions
+  - GitLab Pipelines
+  - CRON-Jobs
+  - Manuelle Uploads
+- **Zunehmende Anzahl und Komplexität** der Datensätze
+- Höhere Anforderungen an:
+  - Zuverlässigkeit
+  - Monitoring
+  - Nachvollziehbarkeit
+
+➡️ Jetzt ist der richtige Zeitpunkt für eine **Standardisierung und Zentralisierung**
 
 ---
 
-## 6. Tables
-
-| Column 1 | Column 2 |
-| -------- | -------- |
-| Item 1   | Item 2   |
-| Item 3   | Item 4   |
-
----
-
-![bg opacity](https://picsum.photos/800/600?image=53)
-## 7. Columns
+# Warum jetzt?
 
 <div class="columns">
 <div>
+      
+<!-- _class: cool-list -->
 
-## Left
+- Open Data Zürich betreibt **zahlreiche historisch gewachsene Aktualisierungsprozesse**
+- Unterschiedliche Kanäle:
+  - Dropzone (WebDAV Harvester)
+  - GitHub Actions
+  - GitLab Pipelines
+  - CRON-Jobs
+  - Manuelle Uploads
 
-- 1
-- 2
+</div>  
+<div>    
+        
+- **Zunehmende Anzahl und Komplexität** der Datensätze
+- Höhere Anforderungen an:
+  - Zuverlässigkeit
+  - Monitoring
+  - Nachvollziehbarkeit
 
+</div> 
 </div>
+
+---
+
+# Was passiert, wenn wir nichts tun?
+
+**Pain (Ist-Zustand):**
+- Kein zentrales Monitoring
+- Fehler werden oft  spät erkannt
+- Unterschiedliche Metadatenverarbeitung je nach Kanal
+- Kein automatisches Retry bei temporären API-Fehlern
+- Gesamte Prozesse müssen bei Fehlern neu gestartet werden
+
+**Erwarteter Win:**
+- Weniger manuelle Eingriffe
+- Schnellere Fehlerbehebung
+- Höhere Stabilität und Transparenz
+
+---
+
+# Welches Problem lösen wir?
+
+- Fehlende **zentrale Orchestrierung** aller Datenaktualisierungen
+- Keine einheitliche:
+  - Überwachung
+  - Fehlerbehandlung
+  - Wiederholbarkeit
+- Abhängigkeit von **externen Services** (z. B. GitHub Actions)
+
+➡️ Ziel: **Einheitlicher, robuster und skalierbarer Aktualisierungsprozess**
+
+---
+
+# Wie sieht die Lösung aus?
+
+<div class="columns">
 <div>
+      
+**Apache Airflow als zentraler Orchestrator**
 
-## Right
+- Steuerung aller Aktualisierungsprozesse über DAGs
+- Einheitliches Monitoring & Logging
+- Konfigurierbare Retry-Mechanismen
+- Klare Trennung:
+  - Orchestrierung (Airflow)
+  - Fachlogik (Docker-Container)
 
-- 3
-- 4
+**Ergebnis:**
+- Standardisierte Pipelines
+- Bessere Wartbarkeit
+- Zukunftssichere Architektur
 
-</div>
-</div>
-
----
-
-## 8. Icons
-
-<i class="fa-brands fa-twitter"></i> Twitter: 
-<i class="fa-brands fa-mastodon"></i> Mastodon: 
-<i class="fa-brands fa-linkedin"></i> LinkedIn: 
-<i class="fa fa-window-maximize"></i> Blog: 
-<i class="fa-brands fa-github"></i> GitHub: 
-
----
-
-# 9. <!--fit--> Large Text
-
----
-
-<!-- Needed for mermaid, can be anywhere in file except frontmatter -->
-<script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-  mermaid.initialize({ startOnLoad: true });
-</script>
-
-# 10. Mermaid
-
+</div>  
+<div>    
+        
 <div class="mermaid">
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
+
+flowchart LR
+    A[Aktualisierung des Inventars des Hauptarchivs] --> AF[Apache Airflow]
+    B[Andere Pipeline<BR>z.B. API, Laufwerke, etc] --> AF
+    C[Andere Pipeline ...] --> AF
+    AF --> CKAN[CKAN<br>Open Data Katalog]
+    style AF fill:#f9f,stroke:#333,stroke-width:2px,color:#000
+
 </div>
+
+</div> 
+</div>
+
+---
+
+# Beispiel-Pipeline: Inventar Hauptarchiv Stadtarchiv Zürich
+
+**Warum dieser Use Case?**
+- Typischer Open-Data-Aktualisierungsprozess
+- Hohe Komplexität:
+  - API-Abfrage (SRU)
+  - PDF-Downloads
+  - KI-basierte Textzusammenfassungen
+  - CSV & Parquet
+  - Metadaten-Update in CKAN
+
+➡️ Ideal als **Blaupause für weitere Pipelines**
+
+---
+
+
+# Technische Umsetzung (POC)
+
+- Eigener Airflow-DAG für den Use Case
+- Verarbeitungsschritte als Docker-Container
+- Gemeinsames Volume für Datenaustausch
+- Parallelisierung einzelner Tasks (z. B. CSV & Parquet Upload)
+
+**Technologien:**
+- Python
+- Apache Airflow
+- Docker Operator
+- CKAN API
+- Google Gemini API (für Zusammenfassungen)
+
+---
+
+# Was wurde bereits umgesetzt?
+
+- Vollständiger **Proof of Concept**
+- Funktionsfähiger Airflow-DAG
+- Erfolgreiche Aktualisierung:
+  - Daten (CSV & Parquet)
+  - Metadaten im CKAN
+- Laufzeit deutlich reduziert gegenüber Originalprozess
+- Dokumentation & reproduzierbares Setup 
+
+➡️ Lösung ist **demonstrierbar und erweiterbar**: https://github.com/alexanderguentert/cas-de-airflow/
+
+---
+
+# Mehrwert der Lösung
+
+- Zentrales Monitoring aller Pipelines
+- Einheitliche Metadatenverarbeitung
+- Automatische Retries bei Fehlern
+- Keine vollständigen Neustarts bei Teilausfällen
+- Unabhängigkeit von externen CI-Systemen
+
+➡️ **Robuste Basis für zukünftige Open-Data-Prozesse**
+
+---
+
+# Call-to-Action
+
+**Nächste Schritte:**
+- Vorstellung bei stadtinternen Stakeholdern
+- Testdeployment des Proof of Concept
+- Definition eines Standard-DAG-Templates
+- Einbindung zusätzlicher Datenquellen:
+  - Externe APIs
+  - Filesysteme
+- Perspektivisch:
+  - Integration des städtischen Metadatenkatalogs (SDK)
+  - Integration DWH
+
