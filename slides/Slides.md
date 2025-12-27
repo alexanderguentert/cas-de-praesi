@@ -168,5 +168,5 @@ theme: weber
 
 ![bg right:35% h:100%](img/ChatGPT_rocket.png)
 <figcaption align="right">
-<b>Quelle</b>: ChatGPT
+<b>Bildquelle</b>: ChatGPT
 </figcaption>
