@@ -34,43 +34,16 @@ theme: weber
 
 # Warum jetzt?
 
-- Open Data Zürich betreibt **zahlreiche historisch gewachsene Aktualisierungsprozesse**
-- Unterschiedliche Kanäle:
-  - Dropzone (WebDAV Harvester)
-  - GitHub Actions
-  - GitLab Pipelines
-  - CRON-Jobs
-  - Manuelle Uploads
+- Open Data Zürich betreibt **zahlreiche historisch gewachsene Aktualisierungsprozesse** über unterschiedliche Kanäle:
+  - 📥 Dropzone (WebDAV Harvester)
+  - 🤖 GitHub Actions
+  - 🦊 GitLab Pipelines
+  - ⏰ CRON-Jobs
+  - 📤 Manuelle Uploads
 - **Zunehmende Anzahl und Komplexität** der Datensätze
-- Höhere Anforderungen an:
-  - Zuverlässigkeit
-  - Monitoring
-  - Nachvollziehbarkeit
+- Höhere Anforderungen an Zuverlässigkeit, Monitoring und Nachvollziehbarkeit
 
 ➡️ Jetzt ist der richtige Zeitpunkt für eine **Standardisierung und Zentralisierung**
-
----
-
-<div class="columns">
-<div>
-
-Open Data Zürich betreibt **zahlreiche historisch gewachsene Aktualisierungsprozesse** über unterschiedliche Kanäle:
-- Dropzone (WebDAV Harvester)
-- GitHub Actions
-- GitLab Pipelines
-- CRON-Jobs
-- Manuelle Uploads
-
-</div>  
-<div>    
-        
-**Zunehmende Anzahl und Komplexität** der Datensätze stellt höhere Anforderungen an:
-- Zuverlässigkeit
-- Monitoring
-- Nachvollziehbarkeit
-
-</div> 
-</div>
 
 ---
 
@@ -107,7 +80,7 @@ Open Data Zürich betreibt **zahlreiche historisch gewachsene Aktualisierungspro
       
 **Apache Airflow als zentraler Orchestrator**
 
-- Steuerung aller Aktualisierungsprozesse über DAGs
+- Steuerung aller Aktualisierungen über DAGs
 - Einheitliches Monitoring & Logging
 - Konfigurierbare Retry-Mechanismen
 - Klare Trennung:
@@ -119,7 +92,7 @@ Open Data Zürich betreibt **zahlreiche historisch gewachsene Aktualisierungspro
 - Bessere Wartbarkeit
 - Zukunftssichere Architektur
 
-![bg right:40% h:50%](img/airflow_architektur.svg)
+![bg right:38% h:48%](img/airflow_architektur.svg)
 
 ---
 
