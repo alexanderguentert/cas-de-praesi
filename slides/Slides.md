@@ -119,8 +119,8 @@ theme: weber
 - Parallelisierung einzelner Tasks (z. B. CSV & Parquet Upload)
 
 **Technologien:**
-- Python
 - Apache Airflow
+- Python
 - Docker Operator
 - CKAN API
 - Google Gemini API (für Zusammenfassungen)
@@ -130,24 +130,25 @@ theme: weber
 # Was wurde bereits umgesetzt?
 
 - Vollständiger **Proof of Concept**
-- Funktionsfähiger Airflow-DAG
+- Ein funktionsfähiger Airflow-DAG
 - Erfolgreiche Aktualisierung:
   - Daten (CSV & Parquet)
   - Metadaten im CKAN
-- Laufzeit deutlich reduziert gegenüber Originalprozess
-- Dokumentation & reproduzierbares Setup 
+- Dokumentation & reproduzierbares Setup auf [Github](https://github.com/alexanderguentert/cas-de-airflow/)
 
-➡️ Lösung ist **demonstrierbar und erweiterbar**: https://github.com/alexanderguentert/cas-de-airflow/
+➡️ Lösung ist **demonstrierbar und erweiterbar**
+
+![bg right:45% h:100%](img/screenshot_dag.png)
 
 ---
 
 # Mehrwert der Lösung
 
-- Zentrales Monitoring aller Pipelines
+- Zusammenführung aller Datenaktualisierungen in einerm Tool
+- Zentrales Monitoring
 - Einheitliche Metadatenverarbeitung
-- Automatische Retries bei Fehlern
-- Keine vollständigen Neustarts bei Teilausfällen
-- Unabhängigkeit von externen CI-Systemen
+- Retries oder Teilwiederholungen bei Fehlern
+- Unabhängigkeit von Github Actions / Gitlab Pipelines möglich (aber nicht notwendig)
 
 ➡️ **Robuste Basis für zukünftige Open-Data-Prozesse**
 
@@ -157,12 +158,15 @@ theme: weber
 
 **Nächste Schritte:**
 - Vorstellung bei stadtinternen Stakeholdern
-- Testdeployment des Proof of Concept
+- Einbindung in SSZ-Toolstack prüfen
+- Testdeployment des PoC auf städtischer CMP
 - Definition eines Standard-DAG-Templates
-- Einbindung zusätzlicher Datenquellen:
-  - Externe APIs
-  - Filesysteme
-- Perspektivisch:
+- Einbindung zusätzlicher Datenquellen (Externe APIs, Filesysteme)
+- **Perspektivisch:**
   - Integration des städtischen Metadatenkatalogs (SDK)
   - Integration DWH
 
+![bg right:35% h:100%](img/ChatGPT_rocket.png)
+<figcaption>
+<b>Quelle</b>: ChatGPT
+</figcaption>
