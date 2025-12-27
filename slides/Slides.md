@@ -167,6 +167,6 @@ theme: weber
   - Integration DWH
 
 ![bg right:35% h:100%](img/ChatGPT_rocket.png)
-<figcaption>
+<figcaption align="right">
 <b>Quelle</b>: ChatGPT
 </figcaption>
