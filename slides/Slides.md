@@ -12,7 +12,7 @@ theme: weber
 ### Use Case Präsentation 
 #### Alexander Güntert
 
-[👉Folien als PDF herunterladen](Slides.pdf)
+[👉 Folien als PDF herunterladen](/Slides.pdf)
 
 <style>
 .bottom-img-row {
