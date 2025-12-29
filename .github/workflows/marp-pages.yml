@@ -36,10 +36,12 @@ jobs:
             --allow-local-files
             --input-dir slides
             --theme-set slides/themes
-            -o build/index.html
+            -o build
             --html
         env:
           MARP_USER: root:root
+      - name: Rename Slides.html to index.html
+        run: mv build/Slides.html build/index.html
       - name: Marp Build (PDF)
         uses: docker://marpteam/marp-cli:latest
         with:
