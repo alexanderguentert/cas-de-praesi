@@ -54,8 +54,11 @@ jobs:
           MARP_USER: root:root
       - name: Fix PDF output location
         run: |
-          mv build/Slides.pdf/Slides.pdf build/Slides.pdf
-          rmdir build/Slides.pdf
+          if [ -d build/Slides.pdf ]; then
+            mv build/Slides.pdf/Slides.pdf build/Slides.tmp.pdf
+            rmdir build/Slides.pdf
+            mv build/Slides.tmp.pdf build/Slides.pdf
+          fi
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
