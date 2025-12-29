@@ -38,7 +38,6 @@ jobs:
             --theme-set slides/themes
             -o build/index.html
             --html
-            Slides.md
         env:
           MARP_USER: root:root
       - name: Marp Build (PDF)
@@ -49,7 +48,6 @@ jobs:
             --input-dir slides
             --theme-set slides/themes
             -o build/Slides.pdf
-            Slides.md
         env:
           MARP_USER: root:root
       - name: Setup Pages
