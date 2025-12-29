@@ -52,6 +52,8 @@ jobs:
             -o build/Slides.pdf
         env:
           MARP_USER: root:root
+      - name: Fix file permissions
+        run: sudo chown -R $USER:$USER build
       - name: Fix PDF output location
         run: |
           if [ -d build/Slides.pdf ]; then
