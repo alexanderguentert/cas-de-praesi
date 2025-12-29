@@ -32,13 +32,24 @@ jobs:
       - name: Marp Build (README)
         uses: docker://marpteam/marp-cli:latest
         with:
-          args: --theme-set slides/themes -o build/index.html --html -- slides/Slides.md
+          args: >
+            --allow-local-files
+            --input-dir slides
+            --theme-set slides/themes
+            -o build/index.html
+            --html
+            Slides.md
         env:
           MARP_USER: root:root
       - name: Marp Build (PDF)
         uses: docker://marpteam/marp-cli:latest
         with:
-          args: --theme-set slides/themes -o build/Slides.pdf -- slides/Slides.md
+          args: >
+            --allow-local-files
+            --input-dir slides
+            --theme-set slides/themes
+            -o build/Slides.pdf
+            Slides.md
         env:
           MARP_USER: root:root
       - name: Setup Pages
