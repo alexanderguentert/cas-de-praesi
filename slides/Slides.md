@@ -34,7 +34,7 @@ theme: weber
 
 ---
 
-# Warum jetzt?
+# Ausgangsslage / Warum jetzt?
 
 - Open Data Zürich betreibt **zahlreiche historisch gewachsene Aktualisierungsprozesse** über unterschiedliche Kanäle:
   - 📥 Dropzone (WebDAV Harvester)
@@ -42,8 +42,8 @@ theme: weber
   - 🦊 GitLab Pipelines
   - ⏰ CRON-Jobs
   - 📤 Manuelle Uploads
-- **Zunehmende Anzahl und Komplexität** der Datensätze
-- Höhere Anforderungen an Zuverlässigkeit, Monitoring und Nachvollziehbarkeit
+- **Zunehmende Anzahl und Komplexität** der Datensätze (u.a. durch SDK)
+- Höhere Anforderungen an Zuverlässigkeit, Monitoring und Nachvollziehbarkeit durch vermehrte Nutzung
 
 ➡️ Jetzt ist der richtige Zeitpunkt für eine **Standardisierung und Zentralisierung**
 
@@ -53,12 +53,12 @@ theme: weber
 
 **Pain (Ist-Zustand):**
 - Kein zentrales Monitoring
-- Fehler werden oft  spät erkannt
+- Fehler werden oft spät erkannt
 - Unterschiedliche Metadatenverarbeitung je nach Kanal
-- Kein automatisches Retry bei temporären API-Fehlern
-- Gesamte Prozesse müssen bei Fehlern neu gestartet werden
+- Gesamte Prozesse müssen bei Fehlern neu gestartet werden (kein Retry)
 
 **Erwarteter Win:**
+- Bessere Übersicht über alle Prozesse
 - Weniger manuelle Eingriffe
 - Schnellere Fehlerbehebung
 - Höhere Stabilität und Transparenz
@@ -119,11 +119,11 @@ theme: weber
 - Parallelisierung einzelner Tasks (z. B. CSV & Parquet Upload)
 
 **Technologien:**
-- Apache Airflow
-- Python
-- Docker Operator
-- CKAN API
-- Google Gemini API (für Zusammenfassungen)
+- ![h:30](https://www.apache.org/logos/res/airflow/airflow-3.png) Apache Airflow 
+- ![h:30](https://img.icons8.com/color/48/python--v1.png) Python 
+- ![h:30](https://img.icons8.com/fluency/48/docker.png) Docker Operator 
+- ![h:30](https://images.icon-icons.com/2699/PNG/512/ckan_logo_icon_170391.png) CKAN API 
+- ![h:30](https://img.icons8.com/fluency/48/gemini-ai.png) Google Gemini API (für Zusammenfassungen)
 
 ---
 
@@ -149,6 +149,7 @@ theme: weber
 - Einheitliche Metadatenverarbeitung
 - Retries oder Teilwiederholungen bei Fehlern
 - Unabhängigkeit von Github Actions / Gitlab Pipelines möglich (aber nicht notwendig)
+- Einfach erweiterbar durch viele Konnektoren
 
 ➡️ **Robuste Basis für zukünftige Open-Data-Prozesse**
 
@@ -162,9 +163,10 @@ theme: weber
 - Testdeployment des PoC auf städtischer CMP
 - Definition eines Standard-DAG-Templates
 - Einbindung zusätzlicher Datenquellen (Externe APIs, Filesysteme)
-- **Perspektivisch:**
-  - Integration des städtischen Metadatenkatalogs (SDK)
-  - Integration DWH
+
+**Perspektivisch:**
+- Integration des städtischen Metadatenkatalogs (SDK)
+- Integration DWH
 
 ![bg right:35% h:100%](img/ChatGPT_rocket.png)
 <figcaption align="right">
