@@ -12,7 +12,7 @@ theme: weber
 ### Use Case Präsentation 
 #### Alexander Güntert
 
-[👉 Folien als PDF herunterladen](Slides.pdf)
+👉 Folien [Online](https://alexanderguentert.github.io/cas-de-praesi/) oder als [PDF herunterladen](Slides.pdf)
 
 <style>
 .bottom-img-row {
@@ -52,6 +52,7 @@ theme: weber
 # Was passiert, wenn wir nichts tun?
 
 **Pain (Ist-Zustand):**
+- Verschiedene Technologien, die ähnliches machen
 - Kein zentrales Monitoring
 - Fehler werden oft spät erkannt
 - Unterschiedliche Metadatenverarbeitung je nach Kanal
@@ -59,6 +60,7 @@ theme: weber
 
 **Erwarteter Win:**
 - Bessere Übersicht über alle Prozesse
+- Bessere Einbettung in SSZ-Tech-Stack
 - Weniger manuelle Eingriffe
 - Schnellere Fehlerbehebung
 - Höhere Stabilität und Transparenz
@@ -68,6 +70,7 @@ theme: weber
 # Welches Problem lösen wir?
 
 - Fehlende **zentrale Orchestrierung** aller Datenaktualisierungen
+- Heterogene Technologiebasis
 - Keine einheitliche:
   - Überwachung
   - Fehlerbehandlung
@@ -87,10 +90,10 @@ theme: weber
 - Konfigurierbare Retry-Mechanismen
 - Klare Trennung:
   - Orchestrierung (Airflow)
-  - Fachlogik (Docker-Container)
+  - Fachlogik (Docker-Container ➡️ Sprachunabhängig)
 
 **Ergebnis:**
-- Standardisierte Pipelines
+- Einheitliche, standardisierte Pipelines
 - Bessere Wartbarkeit
 - Zukunftssichere Architektur
 
@@ -102,7 +105,7 @@ theme: weber
 
 **Warum dieser Use Case?**
 - Typischer Open-Data-Aktualisierungsprozess
-- Hohe Komplexität (API-Abfrage (SRU), PDF-Downloads, KI-basierte Textzusammenfassungen, CSV & Parquet, Metadaten-Update in CKAN)
+- Hohe Komplexität (API-Abfrage, PDF-Downloads, KI-basierte Textzusammenfassungen, CSV & Parquet, Metadaten-Update in CKAN)
 
 ➡️ Ideal als **Blaupause für weitere Pipelines**
 
@@ -145,8 +148,9 @@ theme: weber
 # Mehrwert der Lösung
 
 - Zusammenführung aller Datenaktualisierungen in einerm Tool
+- Flexibilität durch Trennung von Orchestrierung und Fachlogik
 - Zentrales Monitoring
-- Einheitliche Metadatenverarbeitung
+- Industriestandard (supported, zukunftssicher)
 - Retries oder Teilwiederholungen bei Fehlern
 - Unabhängigkeit von Github Actions / Gitlab Pipelines möglich (aber nicht notwendig)
 - Einfach erweiterbar durch viele Konnektoren
