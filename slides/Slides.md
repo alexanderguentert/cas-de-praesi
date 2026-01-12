@@ -52,11 +52,11 @@ theme: weber
 # Was passiert, wenn wir nichts tun?
 
 **Pain (Ist-Zustand):**
-- Verschiedene Technologien, die ähnliches machen
+- Verschiedene Technologien
 - Kein zentrales Monitoring
 - Fehler werden oft spät erkannt
-- Unterschiedliche Metadatenverarbeitung je nach Kanal
-- Gesamte Prozesse müssen bei Fehlern neu gestartet werden (kein Retry)
+- Unterschiedliche Metadatenverarbeitung
+- Keine Teilprozesse, kein Retry
 
 **Erwarteter Win:**
 - Bessere Übersicht über alle Prozesse
@@ -64,6 +64,8 @@ theme: weber
 - Weniger manuelle Eingriffe
 - Schnellere Fehlerbehebung
 - Höhere Stabilität und Transparenz
+
+![bg right:40% h:100%](img/monitoring_kuddelmuddel.png)
 
 ---
 
