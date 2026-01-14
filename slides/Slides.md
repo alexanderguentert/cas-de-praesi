@@ -65,7 +65,7 @@ theme: weber
 - Schnellere Fehlerbehebung
 - Höhere Stabilität und Transparenz
 
-![bg right:40% h:100%](img/monitoring_kuddelmuddel.png)
+![bg right:45% h:100%](img/monitoring_kuddelmuddel.png)
 
 ---
 
