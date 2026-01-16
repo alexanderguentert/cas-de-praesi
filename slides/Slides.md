@@ -36,14 +36,15 @@ theme: weber
 
 # Ausgangsslage / Warum jetzt?
 
+- Stadt Zürich veröffentlicht seit 2012 **Open Data** unter: https://data.stadt-zuerich.ch/
 - Open Data Zürich betreibt **zahlreiche historisch gewachsene Aktualisierungsprozesse** über unterschiedliche Kanäle:
   - 📥 Dropzone (WebDAV Harvester)
   - 🤖 GitHub Actions
   - 🦊 GitLab Pipelines
   - ⏰ CRON-Jobs
   - 📤 Manuelle Uploads
-- **Zunehmende Anzahl und Komplexität** der Datensätze (u.a. durch SDK)
-- Höhere Anforderungen an Zuverlässigkeit, Monitoring und Nachvollziehbarkeit durch vermehrte Nutzung
+- **Zunehmende Anzahl und Komplexität** der Datensätze
+- Höhere Anforderungen an Zuverlässigkeit, Monitoring und Nachvollziehbarkeit
 
 ➡️ Jetzt ist der richtige Zeitpunkt für eine **Standardisierung und Zentralisierung**
 
@@ -55,7 +56,6 @@ theme: weber
 - Verschiedene Technologien
 - Kein zentrales Monitoring
 - Fehler werden oft spät erkannt
-- Unterschiedliche Metadatenverarbeitung
 - Keine Teilprozesse, kein Retry
 
 **Erwarteter Win:**
@@ -65,7 +65,7 @@ theme: weber
 - Schnellere Fehlerbehebung
 - Höhere Stabilität und Transparenz
 
-![bg right:42% h:100%](img/monitoring_kuddelmuddel.png)
+![bg right:43% h:100%](img/monitoring_kuddelmuddel.png)
 
 ---
 
